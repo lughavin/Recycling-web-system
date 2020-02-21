@@ -1,0 +1,72 @@
+.item-card{
+	margin-top: 20px;
+	margin-bottom: 4px; margin-left: auto; margin-right: auto;
+	width: 85%;
+	background-color: #bcbed6;
+	border-radius: 15px 50px;
+  border:1px solid #ddd;
+  padding: 20px;
+
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: 5px;
+  float: left;}
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-width:5px;  
+    border-style:inset;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  #myDIV {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    display: none;
+  }
+  #myDIV1 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    display: none;
+  }
+  #myDIV2 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    display: none;
+  }
+  #myDIV3 {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+    display: none;
+  }
+  #listview{
+    display: inline;
+    list-style-type: none;
+  }
+
