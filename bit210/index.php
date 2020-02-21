@@ -20,7 +20,7 @@
   <body>
     <header id="header-bg">
       <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">MHS</a>
+        <a class="navbar-brand" href="">Recyclables</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -115,10 +115,9 @@
           <div class="col-1"></div>
           <div class="col-10">
             <blockquote class="blockquote text-center">
-              <h1>Micro Housing System for DBKL</h1>
-              <p>
-                Big cities are always expensive to live in, but even more so for
-                young people who have to live independently,
+              <h1 style="color: black;">Recyclables</h1>
+              <p style="color: black;"><b>
+                Save the planet lets all go green and reccyle as much as we can!</b>
               </p>
             </blockquote>
           </div>
@@ -131,7 +130,7 @@
         <div class="col-6">
           <div class="card">
             <img
-              src="https://images.unsplash.com/photo-1558069614-d467a52e7242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+              src="https://lh3.googleusercontent.com/proxy/6uscnmpSMLBgIg94MqkYvTwYUCCW_nrl2faNy-ER5upgsdh74KmmncfzzYu1jlanYUJK5VXv3REHeMLZhAJEVR0NPnJkQDlRE5IZxC8O5vHsaEj0HCyhSwBIIK1O"
               class="card-img-top"
               alt="..."
             />
@@ -149,7 +148,7 @@
         <div class="col-6">
           <div class="card">
             <img
-              src="https://images.unsplash.com/photo-1544891459-c99958441a13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+              src="https://www.waste360.com/sites/waste360.com/files/GlobalRecyclingDay-2019.jpg"
               class="card-img-top"
               alt="..."
             />

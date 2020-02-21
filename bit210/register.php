@@ -73,35 +73,11 @@
                 />
               </div>
             </div>
-            <div class="row">
-            <div class="col-md-6 col-sm-12>
-              <div class="form-group">
-                <label for="passInput">Email: </label>
-                <input
-                  class="form-control"
-                  name="email"
-                  type="email"
-                  required
-                />
-              </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6 col-sm-12">
-              <div class="form-group">
-                <label for="passInput">Monthly Income: </label>
-                <input
-                  class="form-control"
-                  name="monthlyincome"
-                  type="text"
-                />
-              </div>
-            </div>
-          </div>
 
           <div class="row">
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
-                <label for="passInput">STAFF ID: </label>
+                <label for="passInput">Address: </label>
                 <input
                   class="form-control"
                   name="staffId"
@@ -114,17 +90,17 @@
           <div class="row">
             <div class="col-md-6 col-sm-12">
               <div class="form-group">
-                <label>Membership type:</label>
+                <label>User type:</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="userRadio"  value="applicant" >
+                  <input class="form-check-input" type="radio" name="userRadio"  value="recycler" >
                   <label class="form-check-label" >
-                    Applicant
+                    Recycler
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="userRadio" value="officer">
+                  <input class="form-check-input" type="radio" name="userRadio" value="collector">
                   <label class="form-check-label">
-                    Housing Officer
+                    Collector
                   </label>
                 </div>
                 
