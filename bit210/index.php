@@ -130,7 +130,7 @@
         <div class="col-6">
           <div class="card">
             <img
-              src="https://lh3.googleusercontent.com/proxy/6uscnmpSMLBgIg94MqkYvTwYUCCW_nrl2faNy-ER5upgsdh74KmmncfzzYu1jlanYUJK5VXv3REHeMLZhAJEVR0NPnJkQDlRE5IZxC8O5vHsaEj0HCyhSwBIIK1O"
+              src="https://kbimages1-a.akamaihd.net/0ef2702c-fcb4-448b-90fa-d785d46f3dfd/353/569/90/False/save-the-planet-reduce-reuse-and-recycle-2.jpg"
               class="card-img-top"
               alt="..."
             />
