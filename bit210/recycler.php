@@ -1,7 +1,3 @@
-<?php
-session_start();
-$appealRejections = $_SESSION['user_name'];
-?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,7 +5,7 @@ $appealRejections = $_SESSION['user_name'];
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Pooria Atarzadeh">
-  <title>Housing - Appeal Rejection</title>
+  <title>EcoSave - Collector</title>
 
   <!-- Bootstrap core CSS -->
   <link href="./css/bootstrap-grid.min.css" rel="stylesheet">
@@ -68,94 +64,19 @@ $appealRejections = $_SESSION['user_name'];
   <div class="row">
     <div class="col-12">
       <blockquote class="blockquote text-center">
-        <h4>Rejected Applications</h4>
-        <table>
-          <tr>
-            <th>Residence ID</th>
-            <th>Application date</th>
-            <th>Status</th>
-          </tr>
-          
-          <?php
-          
-  include "./db.php";
-
-          $sql="SELECT applicationDate, status, residence from application Where status='Rejected'";
-          $result = $conn-> query($sql);
-
-          if ($result-> num_rows > 0) {
-            while ($row = $result-> fetch_assoc()) {
-              echo "<tr><td>". $row["residence"]."</td><td>".$row["applicationDate"]."</td><td>".$row["status"]."</td></tr>";
-              # code...
-            }
-            echo "</table>";
-            # code...
-          }
-        else{
-          echo "0 results";
-        }
-
-        
-
-        ?>
-      </table>
-      <br>
+    
 
 
     </blockquote>
 
-    <h4>Appeal Application</h4>
-
   </div>
-
-  
-  <form id="appeal" action="CodeAppeal.php" method="POST" enctype="multipart/form-data" >
-
-    <p><h5>Reason for Appeal</h5></p>
-
-    <select name="appID" >
-      <option>
-        <?php  
-        
-
-        $sql="SELECT residence, applicationDate, status from application Where status='Rejected'";
-        $result = $conn-> query($sql);
-
-        if ($result) {
-          while ($row= mysqli_fetch_array($result)) {
-            $new=$row["residence"];
-            echo " Residence ID <br> <option>$new<br></option>";
-          }
-        }
-          $conn ->close();
-          ?>
-
-        </option>
-
-
-      </select>
-      <br><br>
-
-      <textarea name="reason"></textarea>
-
-      <input type="file" name="uploadfile"> <br><br>
-
-
-      <input type ="checkbox" name="valid" id="value" value="upload" checked="checked" " onchange="document.getElementById('uploadfilesub').disabled = !this.checked;" /> You can only Appeal once are you sure !<br>
-
-      
-
-      <button name="uploadfilesub" id="uploadfilesub" value="upload" onclick="myappeal()">Appeal</button>
-
-    </form>
-    
 
   </div>
 </div>
 <footer id="main-footer">
   <div class="row">
     <div class="col-9">
-      <small>Made in Help University &copy; 2019</small>
+      <small>Made in Help University &copy; 2020 </small>
     </div>
 
     <div class="col-1">

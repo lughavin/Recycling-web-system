@@ -80,7 +80,7 @@
                 <label for="passInput">Address: </label>
                 <input
                   class="form-control"
-                  name="staffId"
+                  name="address"
                   type="text"
                 />
               </div>

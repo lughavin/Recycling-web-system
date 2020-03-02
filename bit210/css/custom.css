@@ -7,7 +7,7 @@
 #header-bg .blockquote {
   padding: 50px 10px;
   margin-top: 60px;
-  color: #ffffff;
+  color: #000000;
 }
 #header-bg .blockquote h1 {
   margin: 50px 0;
@@ -30,7 +30,7 @@
 .navbar .navbar-brand,
 .navbar .btn,
 .navbar .nav-link {
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 #main > .row {

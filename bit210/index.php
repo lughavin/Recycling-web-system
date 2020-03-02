@@ -8,7 +8,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="Pooria Atarzadeh" />
-    <title>Housing - Main Page</title>
+    <title>EcoSave - Main Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap-grid.min.css" rel="stylesheet" />
@@ -115,9 +115,9 @@
           <div class="col-1"></div>
           <div class="col-10">
             <blockquote class="blockquote text-center">
-              <h1 style="color: black;">Recyclables</h1>
+              <h1 style="color: black;">ECOSAVE</h1>
               <p style="color: black;"><b>
-                Save the planet lets all go green and reccyle as much as we can!</b>
+                Save the planet lets all go green and recycle as much as we can!</b>
               </p>
             </blockquote>
           </div>
@@ -136,11 +136,10 @@
             />
             <div class="card-body">
               <p class="card-text">
-                Issues of housing supply, affordability, and home ownership have
-                been in focus of late. In a special report, The Edge examines
-                the issue in detail. Statistics suggest there are enough houses
-                built, with property developers churning them out at a rate that
-                more than keeps pace with population growth.
+                Recycling is often portrayed within environmentalist literature as integral to 
+                the conception of an alternative society founded on small-scale community based 
+                industries and commune type human settlements. The aims is to create self-sufficient 
+                sustainable urban communities based around local production for local consumption from local resources.
               </p>
             </div>
           </div>
@@ -154,12 +153,11 @@
             />
             <div class="card-body">
               <p class="card-text">
-                Countries with smaller household size (< 3 persons per
-                household) are mostly developed nations. Factors include
-                demographics (aging versus young population), culture (there
-                would be more multi-generational families under one roof in
-                Asia) and crucially, income levels. Countries with higher GNI
-                per capita have lower household sizes.
+                Recycling is more than just a response to the environmental crisis and has 
+                assumed a symbolic role in beginning to change the nature of western societies 
+                and the culture of consumerism. Indeed many environmentalists assume that there will 
+                be an inevitable shift from our "throwaway" society to a post-industrial "recycling" 
+                society of the future.
               </p>
             </div>
           </div>

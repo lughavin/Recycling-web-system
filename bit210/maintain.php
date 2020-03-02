@@ -9,7 +9,7 @@ $appealRejections = $_SESSION['user_name'];
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Pooria Atarzadeh">
-  <title>Housing - Appeal Rejection</title>
+  <title>EcoSave - Maintain Material</title>
 
   <!-- Bootstrap core CSS -->
   <link href="./css/bootstrap-grid.min.css" rel="stylesheet">
@@ -68,31 +68,32 @@ $appealRejections = $_SESSION['user_name'];
   <div class="row">
     <div class="col-12">
       <blockquote class="blockquote text-center">
-        <h4>Rejected Applications</h4>
+        <h4>Maintain Materials</h4>
         <table>
           <tr>
-            <th>Residence ID</th>
-            <th>Application date</th>
-            <th>Status</th>
+            <th>Material ID</th>
+            <th>Material Name</th>
+            <th>Description</th>
+            <th>Points Per Kg</th>
           </tr>
           
           <?php
           
   include "./db.php";
 
-          $sql="SELECT applicationDate, status, residence from application Where status='Rejected'";
+          $sql="SELECT * FROM materials";
           $result = $conn-> query($sql);
 
           if ($result-> num_rows > 0) {
             while ($row = $result-> fetch_assoc()) {
-              echo "<tr><td>". $row["residence"]."</td><td>".$row["applicationDate"]."</td><td>".$row["status"]."</td></tr>";
+              echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["description"]."</td><td>".$row["pointsperkg"]."</td></tr>";
               # code...
             }
             echo "</table>";
             # code...
           }
         else{
-          echo "0 results";
+          echo "No materials found";
         }
 
         
@@ -104,27 +105,25 @@ $appealRejections = $_SESSION['user_name'];
 
     </blockquote>
 
-    <h4>Appeal Application</h4>
-
   </div>
 
   
-  <form id="appeal" action="CodeAppeal.php" method="POST" enctype="multipart/form-data" >
+  <form id="maintain" action="CodeMaintain.php" method="POST" enctype="multipart/form-data" >
 
-    <p><h5>Reason for Appeal</h5></p>
+    <p><h5>Update Material</h5></p>
 
-    <select name="appID" >
+    <select name="matID" >
       <option>
         <?php  
         
 
-        $sql="SELECT residence, applicationDate, status from application Where status='Rejected'";
+        $sql="SELECT * from materials";
         $result = $conn-> query($sql);
 
         if ($result) {
           while ($row= mysqli_fetch_array($result)) {
-            $new=$row["residence"];
-            echo " Residence ID <br> <option>$new<br></option>";
+            $new=$row["id"];
+            echo " Material ID <br> <option>$new<br></option>";
           }
         }
           $conn ->close();
@@ -136,16 +135,13 @@ $appealRejections = $_SESSION['user_name'];
       </select>
       <br><br>
 
-      <textarea name="reason"></textarea>
+     Material Name <br><input type="text" name="name"><br>
+     Description <br><textarea name="description"></textarea><br>
+     Points per Kg <br><input type="number"  name="points"><br><br>   
 
-      <input type="file" name="uploadfile"> <br><br>
-
-
-      <input type ="checkbox" name="valid" id="value" value="upload" checked="checked" " onchange="document.getElementById('uploadfilesub').disabled = !this.checked;" /> You can only Appeal once are you sure !<br>
-
-      
-
-      <button name="uploadfilesub" id="uploadfilesub" value="upload" onclick="myappeal()">Appeal</button>
+      <button name="update"  value="update" >Update</button>
+      <button name="delete"  value="delete" >Delete</button>
+      <button name="add"  value="add" >Add</button>
 
     </form>
     
@@ -155,7 +151,7 @@ $appealRejections = $_SESSION['user_name'];
 <footer id="main-footer">
   <div class="row">
     <div class="col-9">
-      <small>Made in Help University &copy; 2019</small>
+      <small>Made in Help University &copy; 2020 </small>
     </div>
 
     <div class="col-1">

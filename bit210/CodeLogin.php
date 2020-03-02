@@ -3,6 +3,7 @@
   session_start();
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $fullname = $_POST['fullname'];
 
 
 $sql="SELECT * FROM user WHERE username ='$username' && password='$password';";
@@ -13,15 +14,17 @@ $num=mysqli_num_rows($result);
 
 $row = $result->fetch_assoc();
 
-$_SESSION['user_name']=$username;
+$_SESSION['fullname']=$fullname;
 
 
 
-  if ($num==1 && $row['usergroup'] === 'applicant') {
-  header("Location: /bit210/viewResidence.php");
+  if ($num==1 && $row['usergroup'] === 'recycler') {
+  header("Location: /bit210/recycler.php");
   
-  } else if ($row['usergroup'] === 'officer') {
-    header("Location: /bit210/housing_officer/index.php");
+  } else if ($row['usergroup'] === 'collector') {
+    header("Location: /bit210/collector.php");}
+    else if ($row['usergroup'] === 'admin') {
+    header("Location: /bit210/admin.php");
   } else {
     echo "<script>
     alert('Username or Password Incorect');
