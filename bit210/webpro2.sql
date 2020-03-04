@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2019 at 01:59 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Mar 04, 2020 at 08:42 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,113 +25,116 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `allocation`
+-- Table structure for table `collectmaterial`
 --
 
-CREATE TABLE `allocation` (
+CREATE TABLE `collectmaterial` (
   `id` int(11) NOT NULL,
-  `fromDate` date NOT NULL,
-  `duration` int(11) NOT NULL,
-  `endDate` date NOT NULL,
-  `unit` int(10) NOT NULL,
-  `application` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `materialName` varchar(50) NOT NULL,
+  `collectorName` varchar(50) NOT NULL,
+  `collectorID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `collectmaterial`
+--
+
+INSERT INTO `collectmaterial` (`id`, `materialName`, `collectorName`, `collectorID`) VALUES
+(10, 'sdf ', 'mike stones', 7),
+(15, 'tetetet', 'mike stones', 7);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appeals`
+-- Table structure for table `collector`
 --
 
-CREATE TABLE `appeals` (
-  `id` int(10) NOT NULL,
-  `reason` varchar(100) NOT NULL,
-  `images` longblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `collector` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `fullName` varchar(50) NOT NULL,
+  `totalPoints` int(11) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `schedule` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `appeals`
+-- Dumping data for table `collector`
 --
 
-INSERT INTO `appeals` (`id`, `reason`, `images`) VALUES
-(1, 'not money', 0x34313532626436352d383032622d346563352d396563642d3337343065626465396664392e6a7067),
-(5, 'vff', 0x31343935353936335f3638313834383637383634353834365f313139383930333936343536393532383732335f6e2e6a7067);
+INSERT INTO `collector` (`id`, `username`, `password`, `fullName`, `totalPoints`, `address`, `schedule`) VALUES
+(7, 'mike', '123', 'mike stones', 0, 'fff', 'wednesday');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `application`
+-- Table structure for table `materials`
 --
 
-CREATE TABLE `application` (
-  `id` int(10) NOT NULL,
-  `applicationDate` timestamp NOT NULL DEFAULT current_timestamp(),
-  `requiredDate` date NOT NULL,
-  `status` varchar(20) NOT NULL DEFAULT 'new',
-  `residence` int(10) NOT NULL,
-  `userName` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `materials` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `pointsperkg` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `application`
+-- Dumping data for table `materials`
 --
 
-INSERT INTO `application` (`id`, `applicationDate`, `requiredDate`, `status`, `residence`, `userName`) VALUES
-(29, '2019-11-24 09:45:03', '2019-11-14', 'new', 4, 'test'),
-(30, '2019-11-24 09:45:21', '2019-11-29', 'new', 2, 'test'),
-(31, '2019-11-24 09:51:29', '2019-11-14', 'new', 3, 'test'),
-(32, '2019-11-24 09:52:55', '2019-11-07', 'new', 2, 'peter'),
-(33, '2019-11-24 09:55:22', '2019-11-01', 'new', 1, 'peter'),
-(37, '2019-11-24 12:51:55', '2019-11-14', 'new', 1, 'john'),
-(38, '2019-11-24 12:52:51', '2019-11-01', 'new', 1, 'peter');
+INSERT INTO `materials` (`id`, `name`, `description`, `pointsperkg`) VALUES
+(2, 'eeeevs ', 'vdsfds', 5),
+(3, 'glass', 'tin glass', 28),
+(6, 'tttt', ' ahdb kakds kajdk', 0),
+(7, 'hgfh', 'mhjkl', 0),
+(8, 'sgfdfhgf', 'nhgjhk', 0),
+(9, 'mmbmhm', 'fdbn,m', 0),
+(10, 'sdf ', 'bfghgf', 3),
+(11, 'car', 'leg work', 4),
+(13, 'cattt', 'vsdf sdfd', 3),
+(14, 'Luwi ', 'fff', 4),
+(15, 'tetetet', 'fsfes', 43);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `residences`
+-- Table structure for table `recycler`
 --
 
-CREATE TABLE `residences` (
-  `id` int(10) NOT NULL,
-  `residenceName` varchar(50) NOT NULL,
-  `address` text NOT NULL,
-  `numUnits` int(10) NOT NULL,
-  `sizePerUnit` int(10) NOT NULL,
-  `amenities` varchar(100) NOT NULL,
-  `monthlyRental` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `recycler` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `totalPoints` int(11) NOT NULL,
+  `ecolevel` varchar(50) NOT NULL DEFAULT 'newbie'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `residences`
+-- Dumping data for table `recycler`
 --
 
-INSERT INTO `residences` (`id`, `residenceName`, `address`, `numUnits`, `sizePerUnit`, `amenities`, `monthlyRental`) VALUES
-(1, 'Help University', 'Bukit bandaraya', 2, 2, 'Ping Pong, Dance Studio etc', 2000),
-(2, 'Trek Condo', 'Bukit bandaraya', 2, 2, '', 2000),
-(3, 'South Bend ', 'Bukit bandaraya', 2, 2, '', 2000),
-(4, 'Crystal Residence', 'Bukit bandaraya', 2, 2, '', 2000),
-(5, 'Diamond Residence', 'Bukit bandaraya', 2, 2, '', 2000);
+INSERT INTO `recycler` (`id`, `username`, `password`, `fullname`, `address`, `totalPoints`, `ecolevel`) VALUES
+(1, 'peter', '123', 'peter smith', 'tttttt', 0, 'newbie');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `unit`
+-- Table structure for table `submission`
 --
 
-CREATE TABLE `unit` (
-  `id` int(10) NOT NULL,
-  `unitNo` int(5) NOT NULL,
-  `availability` varchar(20) NOT NULL,
-  `residence` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `unit`
---
-
-INSERT INTO `unit` (`id`, `unitNo`, `availability`, `residence`) VALUES
-(1, 1, 'available', 1),
-(2, 2, 'available', 1);
+CREATE TABLE `submission` (
+  `submissionID` int(11) NOT NULL,
+  `proposedDate` date NOT NULL,
+  `actualDate` date NOT NULL,
+  `weight` int(11) NOT NULL,
+  `pointsawarded` int(11) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `materialID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -145,133 +148,112 @@ CREATE TABLE `user` (
   `password` varchar(64) NOT NULL,
   `fullname` varchar(100) NOT NULL,
   `usergroup` varchar(20) NOT NULL,
-  `staff_id` varchar(30) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `monthly_income` int(6) NOT NULL
+  `address` varchar(100) NOT NULL,
+  `schedule` varchar(50) NOT NULL,
+  `totalpoints` int(11) NOT NULL,
+  `ecolevel` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `usergroup`, `staff_id`, `email`, `monthly_income`) VALUES
-(1, 'test', 'test', 'Tester', 'applicant', '', 'tester@help.edu.my', 4000),
-(3, 'peter', 'abcd', 'lughano ghambi', 'applicant', '', 'ghambi.lughano@gmail.com', 4562),
-(5, 'jane2', 'luwi', 'lughano  vincent ghambi', 'applicant', '', 'ghambi.lughano@gmail.comdd', 4562),
-(7, 'john', 'john', 'john smith', 'applicant', '', 'john@g.com', 7777),
-(9, 'testt', 'testt', 'test', 'officer', '78', 'gggg@h.com', 785),
-(22, 'mia', 'mia', 'dfsfdsf', 'officer', '124', 'fddfds@fddsf.com', 454);
+INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `usergroup`, `address`, `schedule`, `totalpoints`, `ecolevel`) VALUES
+(1, 'admin', 'admin', 'Tester Luwi', 'admin', 'tester@help.edu.my', '0000-00-00', 0, '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `allocation`
+-- Indexes for table `collectmaterial`
 --
-ALTER TABLE `allocation`
+ALTER TABLE `collectmaterial`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `application` (`application`),
-  ADD KEY `unit` (`unit`);
+  ADD KEY `collectorID` (`collectorID`);
 
 --
--- Indexes for table `appeals`
+-- Indexes for table `collector`
 --
-ALTER TABLE `appeals`
+ALTER TABLE `collector`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `application`
+-- Indexes for table `materials`
 --
-ALTER TABLE `application`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `residence` (`residence`),
-  ADD KEY `userName` (`userName`);
-
---
--- Indexes for table `residences`
---
-ALTER TABLE `residences`
+ALTER TABLE `materials`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `unit`
+-- Indexes for table `recycler`
 --
-ALTER TABLE `unit`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `residence` (`residence`);
+ALTER TABLE `recycler`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `submission`
+--
+ALTER TABLE `submission`
+  ADD PRIMARY KEY (`submissionID`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `materialID` (`materialID`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `appeals`
+-- AUTO_INCREMENT for table `collector`
 --
-ALTER TABLE `appeals`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `collector`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `application`
+-- AUTO_INCREMENT for table `materials`
 --
-ALTER TABLE `application`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+ALTER TABLE `materials`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `residences`
+-- AUTO_INCREMENT for table `recycler`
 --
-ALTER TABLE `residences`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `recycler`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `unit`
+-- AUTO_INCREMENT for table `submission`
 --
-ALTER TABLE `unit`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `submission`
+  MODIFY `submissionID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `allocation`
+-- Constraints for table `collectmaterial`
 --
-ALTER TABLE `allocation`
-  ADD CONSTRAINT `allocation_ibfk_1` FOREIGN KEY (`application`) REFERENCES `application` (`id`),
-  ADD CONSTRAINT `allocation_ibfk_2` FOREIGN KEY (`unit`) REFERENCES `unit` (`id`);
+ALTER TABLE `collectmaterial`
+  ADD CONSTRAINT `collectmaterial_ibfk_1` FOREIGN KEY (`collectorID`) REFERENCES `collector` (`id`);
 
 --
--- Constraints for table `appeals`
+-- Constraints for table `submission`
 --
-ALTER TABLE `appeals`
-  ADD CONSTRAINT `appeals_ibfk_1` FOREIGN KEY (`id`) REFERENCES `application` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `application`
---
-ALTER TABLE `application`
-  ADD CONSTRAINT `application_ibfk_1` FOREIGN KEY (`residence`) REFERENCES `residences` (`id`),
-  ADD CONSTRAINT `application_ibfk_2` FOREIGN KEY (`userName`) REFERENCES `user` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `unit`
---
-ALTER TABLE `unit`
-  ADD CONSTRAINT `unit_ibfk_1` FOREIGN KEY (`residence`) REFERENCES `residences` (`id`);
+ALTER TABLE `submission`
+  ADD CONSTRAINT `submission_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `submission_ibfk_2` FOREIGN KEY (`materialID`) REFERENCES `materials` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
