@@ -74,11 +74,11 @@
                                         <label for="days">Choose collection schedule:</label>
 
                                         <select name="schedule">
-                                            <option value="monday">monday</option>
-                                            <option value="tuseday">tuseday</option>
-                                            <option value="wednesday">wednesday</option>
-                                            <option value="thursday">thursday</option>
-                                            <option value="friday">friday</option>
+                                            <option value="monday">Monday</option>
+                                            <option value="tuseday">Tuseday</option>
+                                            <option value="wednesday">Wednesday</option>
+                                            <option value="thursday">Thursday</option>
+                                            <option value="friday">Friday</option>
                                         </select>
                                     </div>
 
