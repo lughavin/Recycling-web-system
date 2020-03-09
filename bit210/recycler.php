@@ -24,7 +24,7 @@
 
     <header id="header-bg" class="mini">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="./index.php">Recycables</a>
+            <a class="navbar-brand" href="./index.php"><b>Recycables</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,22 +32,17 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="viewResidence.php">View Residence </a>
+                        <a class="nav-link" href="recycler.php"><b>Make Appointment </b></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="viewApplicant.php">View Applications </a>
+                        <a class="nav-link" href="recycler.php"><b>View History</b> </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="submitApplication.php">Submit Application</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="appealRejections.php"
-          >Appeal Rejection</a
-          >
-        </li>
-      </ul>
-      <a href="./logout.php" class="nav-link">Log Out</a>
+                        <a class="nav-link" href="recycler.php"><b>Update Profile</b></a>
+                    </li>
+        
+                  </ul>
+      <a href="./logout.php" class="nav-link"><b>Log Out</b></a>
             </div>
         </nav>
 

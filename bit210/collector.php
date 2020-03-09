@@ -28,7 +28,7 @@ session_start();
 
         <header id="header-bg" class="mini">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="./index.php">Recycables</a>
+                <a class="navbar-brand" href="./index.php"><b>Recycables</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,17 +36,58 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="recordMaterial.php">Record Material </a>
+                            <a class="nav-link" href="recordMaterial.php"><b>Record Material</b></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="viewHistory.php">View History </a>
+                            <a class="nav-link" href="viewHistory.php"><b>View History</b></a>
+                        </li>
+                        <li>
+                            <button class="btn" data-toggle="modal" data-target="#loginModal"><b>
+              Update Profile</b>
+            </button>
                         </li>
                     </ul>
-                    <a href="./logout.php" class="nav-link">Log Out</a>
+                    <a href="./logout.php" class="nav-link"><b>Log Out</b></a>
                 </div>
             </nav>
 
         </header>
+
+        <form method="post" action="updateProfile.php">
+            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><b>Update Profile</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="post" action="CodeLogin.php">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div>
+                                    &nbsp;
+                                </div>
+
+                                <label for="recipient-name" class="col-form-label">Full Name:</label>
+                                <input type="text" class="form-control" name="fullName" />
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Password:</label>
+                                <input type="password" class="form-control" name="password" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" name="login" class="btn btn-lg btn-dark"><b>Update</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </form>
+
 
         <div class="container" id="main">
             <div class="row">

@@ -15,23 +15,23 @@ if ($recycler){
 
 values('$username', '$password','$fullname','$address');";
 $qry = mysqli_query($conn, $sql);
-if ($qry) {
-	echo "user registered successfully";
-  header("Location: /bit210/index.php");
+	if ($qry) {
+		echo "user registered successfully";
+  	header("Location: /bit210/index.php");
 
-}
- else {
+	}
+ 	else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }}
 
-if ($collector){
+else if ($collector){
 	$sql2="insert into collector (username, password, fullname, address, schedule) 
 
 values('$username', '$password','$fullname','$address','$schedule');";
 $qry2 = mysqli_query($conn, $sql2);
-if ($qry2) {
-	echo "user registered successfully";
-  header("Location: /bit210/index.php");
+	if ($qry2) {
+		echo "user registered successfully";
+  		header("Location: /bit210/index.php");
 
 }
  else {

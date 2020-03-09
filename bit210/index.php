@@ -19,7 +19,7 @@
 <body>
     <header id="header-bg">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="">Recyclables</a>
+            <a class="navbar-brand" href=""><b>Recyclables</b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,8 +27,8 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
                 <span>
-            <button class="btn" data-toggle="modal" data-target="#loginModal">
-              Login
+            <button class="btn" data-toggle="modal" data-target="#loginModal"><b>
+              Login</b>
             </button>
           </span>
             </div>
@@ -40,7 +40,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><b>Login</b></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -63,12 +63,12 @@
                             <div>
                                 <p>
                                     Don't have an account?
-                                    <a href="./register.php">Register here</a>
+                                    <a href="./register.php"><b>Register here</b></a>
                                 </p>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" name="login" class="btn btn-lg btn-dark">Login</button>
+                            <button type="submit" name="login" class="btn btn-lg btn-dark"><b>Login</b></button>
                         </div>
                     </form>
                 </div>
@@ -81,11 +81,11 @@
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-10">
+                    
                     <blockquote class="blockquote text-center">
-                        <h1 style="color: black;">ECOSAVE</h1>
-                        <p style="color: black;"><b>
-                Save the planet lets all go green and recycle as much as we can!</b>
-                        </p>
+                          <b style="font-size:300%; text-shadow: 2px 2px #0000FF;">E C O S A V E</b>
+                    
+                        
                     </blockquote>
                 </div>
             </div>

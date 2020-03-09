@@ -19,7 +19,7 @@
 <body>
     <header id="header-bg" class="mini">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="./index.php">Recycables</a>
+            <a class="navbar-brand" href="./index.php"><b>Recycables</b></a>
         </nav>
     </header>
 
@@ -35,11 +35,11 @@
                 </p>
                 <br />
                 <div id="newResidenceFormContainer">
-                    <form method="post" id="registerForm" action="./CodeRegister.php">
+                    <form method="post" action="./CodeRegister.php">
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label for="resId">username:</label>
+                                    <label for="userName">username:</label>
                                     <input class="form-control" type="text" name="username" required />
                                 </div>
                             </div>
@@ -48,18 +48,13 @@
                             <div class="col-md-6 col-sm-12>
                 <div class=" form-group ">
                   <label for="passInput ">Password: </label>
-                  <input
-                    class="form-control "
-                    name="password "
-                    type="password "
-                    required
-                  />
+                  <input class="form-control" name="password" type="password" autocomplete="off" required />
                 </div>
               </div>
               <div class="row ">
               <div class="col-md-6 col-sm-12>
                                 <div class="form-group">
-                                    <label for="passInput">Full Name: </label>
+                                    <label for="fullName">Full Name: </label>
                                     <input class="form-control" name="fullname" type="text" />
                                 </div>
                             </div>
@@ -67,7 +62,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label for="passInput">Address: </label>
+                                        <label for="address">Address: </label>
                                         <input class="form-control" name="address" type="text" />
                                     </div>
                                 </div>
@@ -76,7 +71,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label for="cars">Choose collection schedule:</label>
+                                        <label for="days">Choose collection schedule:</label>
 
                                         <select name="schedule">
                                             <option value="monday">monday</option>
@@ -105,7 +100,7 @@
     <footer id="main-footer">
         <div class="row">
             <div class="col-9">
-                <small>Made in Help University &copy; 2019</small>
+                <small>Made in Help University &copy; 2020</small>
             </div>
 
             <div class="col-1">
