@@ -24,14 +24,14 @@ if ($collect){
 $qry = mysqli_query($conn, $sql);
 if ($qry) {
 	echo '<script>';
-  echo 'alert("Materials added  ")';
+  echo 'alert("Materials added to collector ")';
   echo '</script>';
 	echo '<script> window.location.assign("../bit210/collector.php"); </script>';
 
 }
  else {
  	echo '<script>';
-  echo 'alert("please pick another one ")';
+  echo 'alert("Material already collected please pick another one ")';
   echo '</script>';
   echo '<script> window.location.assign("../bit210/collector.php"); </script>';
     
