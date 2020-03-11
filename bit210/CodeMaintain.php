@@ -48,7 +48,7 @@ if ($qry) {
 if ($delete){
 $qry3 = mysqli_query($conn, $sql3);
 if ($qry3) {
-	echo "successfully done";
+	echo "successfully maintained";
 	header("Location: /bit210/maintain.php");
 
 }

@@ -2,21 +2,21 @@
 
 include "./db.php";
   
-$username =$_POST["username"];
-$password =$_POST["password"];
-$fullname =$_POST["fullname"];
-$address = $_POST["address"];
-$schedule = $_POST["schedule"];
-$recycler =$_POST["recycler"];
-$collector =$_POST["collector"];
+$username =$_POST["username123"];
+$password =$_POST["password1"];
+$fullname =$_POST["fullnameds"];
+$address = $_POST["addressad"];
+$schedule = $_POST["scheduledad"];
+$recycler =$_POST["recyclersd"];
+$collector =$_POST["collectorgf"];
 
 if ($recycler){
 	$sql="insert into recycler (username, password, fullname, address) 
 
-values('$username', '$password','$fullname','$address');";
+values('$username', '$password','$fullname','$asdddress');";
 $qry = mysqli_query($conn, $sql);
 	if ($qry) {
-		echo "user registered successfully";
+		echo "user registered";
   	header("Location: /bit210/index.php");
 
 	}
@@ -30,7 +30,7 @@ else if ($collector){
 values('$username', '$password','$fullname','$address','$schedule');";
 $qry2 = mysqli_query($conn, $sql2);
 	if ($qry2) {
-		echo "user registered successfully";
+		echo "user registered";
   		header("Location: /bit210/index.php");
 
 }
