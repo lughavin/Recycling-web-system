@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -40,7 +41,7 @@
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label for="userName">username:</label>
-                                    <input class="form-control" type="text" name="username" required />
+                                    <input class="form-control" type="text" name="username"  required />
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,7 @@
               <div class="col-md-6 col-sm-12>
                                 <div class="form-group">
                                     <label for="fullName">Full Name: </label>
-                                    <input class="form-control" name="fullname" type="text" />
+                                    <input class="form-control" name="fullname" type="text"  />
                                 </div>
                             </div>
 
@@ -71,15 +72,15 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="form-group">
-                                        <label for="days">Choose collection schedule:</label>
+                                        <label for="days">Choose collection schedule:</label><br>
 
-                                        <select name="schedule">
-                                            <option value="monday">Monday</option>
-                                            <option value="tuseday">Tuseday</option>
-                                            <option value="wednesday">Wednesday</option>
-                                            <option value="thursday">Thursday</option>
-                                            <option value="friday">Friday</option>
-                                        </select>
+                                        <select multiple="multiple" name="schedule[]">
+                                          <option value="Monday">Monday</option>
+                                          <option value="Tuseday">Tuseday</option>
+                                          <option value="Wednesay">Wednesay</option>
+                                          <option value="Thrusday">Thrusday</option>
+                                          <option value="Friday">Friday</option>
+                                        </select><br>
                                     </div>
 
                                 </div>
@@ -88,8 +89,16 @@
                         </div>
 
                         <br />
-                        <button class="btn btn-primary" value="recycler" name="recycler">Register as recycler</button>
-                        <button class="btn btn-primary" value="collector" name="collector">Register as collector</button>
+
+                         <script>
+                        function recycler1() {
+                          alert("Successfully Registered, Please Login ");
+                        }
+                         
+
+                        </script>
+                        <button onclick="recycler1()" class="btn btn-primary" value="recycler" name="recycler">Register as recycler</button>
+                        <button onclick="recycler1()" class="btn btn-primary" value="collector" name="collector">Register as collector</button>
                 </div>
             </div>
 

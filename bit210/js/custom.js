@@ -2,7 +2,7 @@
  * Written by: Pooria Atarzadeh - B1700394
  */
 
-$(document).ready(function() {
+/*$(document).ready(function() {
   // default period
   var period = 12;
 
