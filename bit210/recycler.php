@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
-
+<?php
+session_start();
+?>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,6 +54,18 @@
         <div class="row">
             <div class="col-12">
                 <blockquote class="blockquote text-center">
+                    <?php
+                        include "./db.php";
+
+                        $sql="SELECT * FROM recycler WHERE username = '{$_SESSION["findUser"]}' ";
+
+                        $result = mysqli_query($conn, $sql);
+                        // Echo session variables that were set on previous page
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<b> This is your Eco level is ".$row['ecolevel']."</b>"."<br>";}
+
+                            $conn->close();
+                    ?>
 
                 </blockquote>
 

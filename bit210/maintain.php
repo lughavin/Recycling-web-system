@@ -122,9 +122,22 @@ $appealRejections = $_SESSION['findUser'];
                     <br>
                     <br>
 
-                    <button name="update" value="update">Update</button>
-                    <button name="delete" value="delete">Delete</button>
-                    <button name="add" value="add">Add</button>
+                    <button  onclick="update1()" name="update" value="update">Update</button>
+                    <button onclick="delete1()" name="delete" value="delete">Delete</button>
+                    <button onclick="add1()" name="add" value="add">Add</button>
+
+                    <script>
+                        function update1() {
+                          alert("Material Updated");
+                        }
+                         function delete1() {
+                          alert("Material Deleted");
+                        }
+                        function add1() {
+                          alert("Material Added");
+                        }
+
+                        </script>
 
                 </form>
 

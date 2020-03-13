@@ -6,7 +6,6 @@ $username =$_POST["username"];
 $password =$_POST["password"];
 $fullname =$_POST["fullname"];
 $address = $_POST["address"];
-$schedule = $_POST["schedule"];
 $recycler =$_POST["recycler"];
 $collector =$_POST["collector"];
 
@@ -16,8 +15,8 @@ if ($recycler){
 values('$username', '$password','$fullname','$address');";
 $qry = mysqli_query($conn, $sql);
 	if ($qry) {
-		echo "user registered successfully";
-  	header("Location: /bit210/index.php");
+		
+  header("Location: /bit210/index.php");
 
 	}
  	else {
@@ -25,14 +24,18 @@ $qry = mysqli_query($conn, $sql);
 }}
 
 else if ($collector){
-	$sql2="insert into collector (username, password, fullname, address, schedule) 
 
-values('$username', '$password','$fullname','$address','$schedule');";
+
+        $schedule = implode(', ', $_POST['schedule']);
+
+        $sql2 = "INSERT INTO collector (username, password, fullname, address, schedule) 
+        VALUES ('$username', '$password','$fullname','$address','$schedule');";
+   
+   
 $qry2 = mysqli_query($conn, $sql2);
 	if ($qry2) {
-		echo "user registered successfully";
-  		header("Location: /bit210/index.php");
-
+	
+ header("Location: /bit210/index.php");
 }
  else {
     echo "Error: " . $sql2 . "<br>" . $conn->error;
