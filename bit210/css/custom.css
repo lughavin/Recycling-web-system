@@ -1,0 +1,78 @@
+#header-bg {
+  background: url("../images/bg.jpg");
+  min-height: 700px;
+  background-size: cover;
+}
+
+#header-bg .blockquote {
+  padding: 50px 10px;
+  margin-top: 60px;
+  color: #000000;
+}
+#header-bg .blockquote h1 {
+  margin: 50px 0;
+  font-size: 2.7em;
+}
+
+#header-bg .blockquote p {
+  text-align: center;
+  padding: 0 20%;
+}
+
+#header-bg.mini {
+  min-height: 70px;
+}
+
+.navbar {
+  width: 80%;
+  margin: 0 auto;
+}
+.navbar .navbar-brand,
+.navbar .btn,
+.navbar .nav-link {
+  color: #000000 !important;
+  
+}
+
+#main > .row {
+  margin-top: 70px;
+  min-height: 400px;
+  margin-bottom: 80px;
+}
+
+.fb-button {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+
+.modal-body {
+  padding: 0 65px;
+}
+
+#main-footer {
+  background-color: rgba(0, 0, 0, 0.9);
+  bottom: 0;
+  width: 100%;
+  padding: 30px 50px;
+  height: 100px;
+}
+
+#main-footer a {
+  color: #ffffff;
+}
+
+#main-footer small {
+  color: gray;
+}
+
+#sizeInput::before {
+  content: "RM";
+  display: inline-block;
+  font-weight: bold;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(255, 255, 255, 1) !important;
+}
