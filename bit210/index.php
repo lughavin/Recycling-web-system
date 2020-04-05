@@ -62,7 +62,7 @@
 
                             <div>
                                 <p>
-                                    Don't have an account?
+                                    Dont have an account?
                                     <a href="./register.php"><b>Register here</b></a>
                                 </p>
                             </div>

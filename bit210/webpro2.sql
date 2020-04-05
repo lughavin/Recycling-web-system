@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2020 at 08:42 PM
+-- Generation Time: Apr 04, 2020 at 08:15 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,8 +40,9 @@ CREATE TABLE `collectmaterial` (
 --
 
 INSERT INTO `collectmaterial` (`id`, `materialName`, `collectorName`, `collectorID`) VALUES
-(10, 'sdf ', 'mike stones', 7),
-(15, 'tetetet', 'mike stones', 7);
+(1, 'wood', 'peter', 1),
+(2, 'glass', 'peter', 1),
+(3, 'plastic', 'peter', 1);
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ CREATE TABLE `collector` (
   `fullName` varchar(50) NOT NULL,
   `totalPoints` int(11) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `schedule` varchar(50) NOT NULL
+  `schedule` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -64,7 +65,36 @@ CREATE TABLE `collector` (
 --
 
 INSERT INTO `collector` (`id`, `username`, `password`, `fullName`, `totalPoints`, `address`, `schedule`) VALUES
-(7, 'mike', '123', 'mike stones', 0, 'fff', 'wednesday');
+(1, 'peter', 'abc', 'peter', 70210, 'jalan damansara desa kiara condo', 'Monday, Thrusday'),
+(2, 'john', '123', 'john', 77, 'help', 'Monday, Wednesay');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `makeappointment`
+--
+
+CREATE TABLE `makeappointment` (
+  `submissionID` int(11) NOT NULL,
+  `proposedDate` date NOT NULL,
+  `actualDate` date NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(50) NOT NULL DEFAULT 'Proposed',
+  `materialID` int(11) NOT NULL,
+  `materialName` text NOT NULL,
+  `weight` int(50) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `recyclerName` text NOT NULL,
+  `pointAwarded` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `makeappointment`
+--
+
+INSERT INTO `makeappointment` (`submissionID`, `proposedDate`, `actualDate`, `status`, `materialID`, `materialName`, `weight`, `userID`, `recyclerName`, `pointAwarded`) VALUES
+(1, '2020-04-30', '2020-04-04', 'submitted', 1, ' wood', 4, 1, 'mike', 0),
+(2, '2020-04-19', '2020-04-04', 'submitted', 2, ' glass', 3, 1, 'mike', 24),
+(3, '2020-04-29', '2020-04-04', 'submitted', 3, ' plastic', 5000, 1, 'mike', 0);
 
 -- --------------------------------------------------------
 
@@ -84,17 +114,11 @@ CREATE TABLE `materials` (
 --
 
 INSERT INTO `materials` (`id`, `name`, `description`, `pointsperkg`) VALUES
-(2, 'eeeevs ', 'vdsfds', 5),
-(3, 'glass', 'tin glass', 28),
-(6, 'tttt', ' ahdb kakds kajdk', 0),
-(7, 'hgfh', 'mhjkl', 0),
-(8, 'sgfdfhgf', 'nhgjhk', 0),
-(9, 'mmbmhm', 'fdbn,m', 0),
-(10, 'sdf ', 'bfghgf', 3),
-(11, 'car', 'leg work', 4),
-(13, 'cattt', 'vsdf sdfd', 3),
-(14, 'Luwi ', 'fff', 4),
-(15, 'tetetet', 'fsfes', 43);
+(1, 'wood', 'Hard wood for furniture ', 5),
+(2, 'glass', 'flexible glass ', 8),
+(3, 'plastic', 'Thin shopping bag plastic', 12),
+(4, 'rubber', 'torn rubber from cars', 4),
+(5, 'metal', 'Tin from home electronics ', 15);
 
 -- --------------------------------------------------------
 
@@ -108,7 +132,7 @@ CREATE TABLE `recycler` (
   `password` varchar(50) NOT NULL,
   `fullname` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `totalPoints` int(11) NOT NULL,
+  `totalPoint` int(11) NOT NULL,
   `ecolevel` varchar(50) NOT NULL DEFAULT 'newbie'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -116,25 +140,8 @@ CREATE TABLE `recycler` (
 -- Dumping data for table `recycler`
 --
 
-INSERT INTO `recycler` (`id`, `username`, `password`, `fullname`, `address`, `totalPoints`, `ecolevel`) VALUES
-(1, 'peter', '123', 'peter smith', 'tttttt', 0, 'newbie');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `submission`
---
-
-CREATE TABLE `submission` (
-  `submissionID` int(11) NOT NULL,
-  `proposedDate` date NOT NULL,
-  `actualDate` date NOT NULL,
-  `weight` int(11) NOT NULL,
-  `pointsawarded` int(11) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `materialID` int(11) NOT NULL,
-  `userID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `recycler` (`id`, `username`, `password`, `fullname`, `address`, `totalPoint`, `ecolevel`) VALUES
+(1, 'mike', '123', 'mike', 'jalan damansara desa kiara condo', 24, 'newbie');
 
 -- --------------------------------------------------------
 
@@ -179,6 +186,14 @@ ALTER TABLE `collector`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `makeappointment`
+--
+ALTER TABLE `makeappointment`
+  ADD PRIMARY KEY (`submissionID`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `materialID` (`materialID`);
+
+--
 -- Indexes for table `materials`
 --
 ALTER TABLE `materials`
@@ -189,14 +204,6 @@ ALTER TABLE `materials`
 --
 ALTER TABLE `recycler`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `submission`
---
-ALTER TABLE `submission`
-  ADD PRIMARY KEY (`submissionID`),
-  ADD KEY `userID` (`userID`),
-  ADD KEY `materialID` (`materialID`);
 
 --
 -- Indexes for table `user`
@@ -212,25 +219,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `collector`
 --
 ALTER TABLE `collector`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `makeappointment`
+--
+ALTER TABLE `makeappointment`
+  MODIFY `submissionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `materials`
 --
 ALTER TABLE `materials`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `recycler`
 --
 ALTER TABLE `recycler`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `submission`
---
-ALTER TABLE `submission`
-  MODIFY `submissionID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -246,14 +253,15 @@ ALTER TABLE `user`
 -- Constraints for table `collectmaterial`
 --
 ALTER TABLE `collectmaterial`
-  ADD CONSTRAINT `collectmaterial_ibfk_1` FOREIGN KEY (`collectorID`) REFERENCES `collector` (`id`);
+  ADD CONSTRAINT `collectmaterial_ibfk_1` FOREIGN KEY (`collectorID`) REFERENCES `collector` (`id`),
+  ADD CONSTRAINT `collectmaterial_ibfk_2` FOREIGN KEY (`id`) REFERENCES `materials` (`id`);
 
 --
--- Constraints for table `submission`
+-- Constraints for table `makeappointment`
 --
-ALTER TABLE `submission`
-  ADD CONSTRAINT `submission_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `submission_ibfk_2` FOREIGN KEY (`materialID`) REFERENCES `materials` (`id`);
+ALTER TABLE `makeappointment`
+  ADD CONSTRAINT `makeappointment_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `collector` (`id`),
+  ADD CONSTRAINT `makeappointment_ibfk_2` FOREIGN KEY (`materialID`) REFERENCES `materials` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

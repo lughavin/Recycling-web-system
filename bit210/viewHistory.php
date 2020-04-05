@@ -26,75 +26,112 @@ $appealRejections = $_SESSION['findUser'];
 
     <body>
 
-        <header id="header-bg" class="mini">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="./index.php"><b>Recycables</b></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <header id="header-bg" class="mini">
+                <nav class="navbar navbar-expand-lg navbar-dark">
+                    <a class="navbar-brand" href="viewSubmissionsHistory.php"><b>Recycables</b></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="collector.php"><b>Collect Materials</b></a>
-                        </li>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="collector.php"><b>Collect Material </b></a>
+                            </li>
+                        </ul>
+                        <a href="./logout.php" class="nav-link"><b>Log Out</b></a>
+                    </div>
+                </nav>
 
-                    </ul>
+            </header>
 
-                    <a href="./logout.php" class="nav-link"><b>Log Out</b></a>
-                </div>
-            </nav>
+            <div class="container" id="main">
+                <div class="row">
+                    <div class="col-12">
+                        <blockquote class="blockquote text-center">
+                            <h4>Materials</h4>
+                            <table class="table">
+                                <tr class="thead-dark">
+                                    <th>Material ID</th>
+                                    <th>Material Name</th>
+                                    <th>Description</th>
+                                    <th>Points Per Kg</th>
+                                </tr>
 
-        </header>
+                                <?php
 
-        <div class="container" id="main">
-            <div class="row">
-                <div class="col-12">
-                    <blockquote class="blockquote text-center">
-                        <table>
-                            <tr>
-                                <th>Material ID</th>
-                                <th>Material Name</th>
-                            </tr>
+      include "./db.php";
 
-                            <?php
+              $sql="SELECT * FROM materials";
+              $result = $conn-> query($sql);
 
-                                  include "./db.php";
+              if ($result-> num_rows > 0) {
+                while ($row = $result-> fetch_assoc()) {
+                  echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["description"]."</td><td>".$row["pointsperkg"]."</td></tr>";
+                  # code...
+                }
+                echo "</table>";
+                # code...
+              }
+            else{
+              echo "No materials found";
+            }
 
-                                  $sql2="SELECT * FROM collector WHERE username = '{$_SESSION["findUser"]}' ";
+            ?>
+                            </table>
+                            <br>
 
-                                $result2 = mysqli_query($conn, $sql2);
-                                // Echo session variables that were set on previous page
-                                while ($row2 = $result2->fetch_assoc()) {
-                                    echo "<b> Materials Collected By: ".$row2['fullName']."</b>"."<br>";
+                   <p>
+                                    <h5>Select Material</h5></p>
+                          <form action="CodeMainHistory.php" method="post">
+                                <select name="matID">
+                                    <option>
 
-                                          $sql="SELECT * FROM collectmaterial WHERE collectorName = '{$row2["fullName"]}'";
-                                          $result = $conn-> query($sql);
+                                        <?php
+                                            $sql="SELECT * from materials";
+                                            $result = $conn-> query($sql);
 
-                                          if ($result-> num_rows > 0) {
-                                            while ($row = $result-> fetch_assoc()) {
-                                              echo "<tr><td>". $row["id"]."</td><td>".$row["materialName"]."</td></tr>";
-                                              # code...
+                                            if ($result) {
+                                              while ($row= mysqli_fetch_array($result)) {
+                                                $new=$row["id"];
+                                                echo " Material ID <br> <option>$new<br></option>";
+                                              }
                                             }
-                                            echo "</table>";
-                                            # code...
-                                          }
-                                        else{
-                                          echo "No materials found";
-                                        }
-                                      }
+                                              $conn ->close();
 
-                            ?>
-                        </table>
+                                         ?>
 
-                    </blockquote>
+                                    </option>
+
+                                </select>
+                                <button name="collect" value="collect">select</button>
+                          <form>
+
+              </blockquote>
+
+                    </div>
 
                 </div>
-
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="./js/bootstrap.bundle.min.js"></script>
-    </body>
+            <footer id="main-footer">
+                <div class="row">
+                    <div class="col-9">
+                        <small>Made in Help University &copy; 2020 </small>
+                    </div>
+
+                    <div class="col-1">
+                        <a href="./index.php">Home</a>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">About</a>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+            </footer>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="./js/bootstrap.bundle.min.js"></script>
+        </body>
 
     </html>

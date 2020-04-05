@@ -32,7 +32,7 @@
             <div class="col-8">
                 <h2>Registration</h2>
                 <p class="mb-0">
-                    Please key in your details to register into our platform. You would require a user account to access any of EcoSave's solutions.
+                    Please key in your details to register into our platform. You would require a user account to access any of EcoSaves solutions.
                 </p>
                 <br />
                 <div id="newResidenceFormContainer">

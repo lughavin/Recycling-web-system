@@ -6,19 +6,17 @@ include "./db.php";
   $password = $_POST['password'];
 
 
-$sql="UPDATE collector SET fullName ='$fullName', password ='$password' WHERE username= '{$_SESSION["findUser"]}';";
+  $sql="UPDATE recycler SET fullName ='$fullName', password ='$password' WHERE username= '{$_SESSION["findUser"]}';";
 
-$qry = mysqli_query($conn, $sql);
+  $qry = mysqli_query($conn, $sql);
 
-if ($qry) {
-	echo '<script>';
-  echo 'alert("Profile Updated")';
-  echo '</script>';
-  echo '<script> window.location.assign("../bit210/collector.php"); </script>';
-}
- else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-
+  if ($qry) {
+    echo '<script>';
+    echo 'alert("Profile Updated")';
+    echo '</script>';
+    echo '<script> window.location.assign("../bit210/recycler.php"); </script>';
+  }
+   else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 ?>

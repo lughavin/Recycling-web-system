@@ -2,10 +2,10 @@
 <html lang="en">
 
 <?php
-session_start();
+    session_start();
 ?>
 
-    <head>
+<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -42,9 +42,7 @@ session_start();
                             <a class="nav-link" href="viewHistory.php"><b>View History</b></a>
                         </li>
                         <li>
-                            <button class="btn" data-toggle="modal" data-target="#loginModal"><b>
-              Update Profile</b>
-            </button>
+                            <button class="btn" data-toggle="modal" data-target="#loginModal"><b> Update Profile</b> </button>
                         </li>
                     </ul>
                     <a href="./logout.php" class="nav-link"><b>Log Out</b></a>
@@ -53,40 +51,40 @@ session_start();
 
         </header>
 
-        <form method="post" action="updateProfile.php">
+        <div>
             <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><b>Update Profile</b></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form method="post" action="CodeLogin.php">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <div>
-                                    &nbsp;
-                                </div>
+              <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                      <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel"><b>Update Profile</b></h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                          </button>
+                      </div>
+                      <form method="post" action="updateProfile2.php">
+                          <div class="modal-body">
+                              <div class="form-group">
+                                  <div>
+                                      &nbsp;
+                                  </div>
 
-                                <label for="recipient-name" class="col-form-label">Full Name:</label>
-                                <input type="text" class="form-control" name="fullName" />
-                            </div>
-                            <div class="form-group">
-                                <label for="message-text" class="col-form-label">Password:</label>
-                                <input type="password" class="form-control" name="password" />
-                            </div>
+                                  <label for="recipient-name" class="col-form-label">Full Name:</label>
+                                  <input type="text" class="form-control" name="fullName" />
+                              </div>
+                              <div class="form-group">
+                                  <label for="message-text" class="col-form-label">Password:</label>
+                                  <input type="password" class="form-control" name="password" />
+                              </div>
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" name="login" class="btn btn-lg btn-dark"><b>Update</b></button>
-                        </div>
-                    </form>
-                </div>
+                          </div>
+                          <div class="modal-footer">
+                              <button type="submit" name="login" class="btn btn-lg btn-dark"><b>Update</b></button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
             </div>
-            </div>
-        </form>
+        </div>
 
 
         <div class="container" id="main">
@@ -94,48 +92,48 @@ session_start();
                 <div class="col-12">
                     <blockquote class="blockquote text-center">
                         <?php
-include "./db.php";
+                            include "./db.php";
 
-$sql="SELECT * FROM collector WHERE username = '{$_SESSION["findUser"]}' ";
+                            $sql="SELECT * FROM collector WHERE username = '{$_SESSION["findUser"]}' ";
 
-$result = mysqli_query($conn, $sql);
-// Echo session variables that were set on previous page
-while ($row = $result->fetch_assoc()) {
-    echo "<b> Welcome ".$row['fullName']."</b>"."<br>";}
+                            $result = mysqli_query($conn, $sql);
+                            // Echo session variables that were set on previous page
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<b> Welcome ".$row['fullName']."</b>"."<br>";}
 
-    $conn->close();
-?>
+                                $conn->close();
+                        ?>
 
-                            <br>
-                            <h4>Collect Materials</h4>
-                            <table class="table">
-                                <tr class="thead-dark">
-                                    <th>Material ID</th>
-                                    <th>Material Name</th>
-                                    <th>Description</th>
-                                    <th>Points Per Kg</th>
-                                </tr>
+                        <br>
+                        <h4>Collect Materials</h4>
+                        <table class="table">
+                            <tr class="thead-dark">
+                                <th>Material ID</th>
+                                <th>Material Name</th>
+                                <th>Description</th>
+                                <th>Points Per Kg</th>
+                            </tr>
 
-                                <?php
+                            <?php
 
-  include "./db.php";
+                                  include "./db.php";
 
-          $sql="SELECT * FROM materials";
-          $result = $conn-> query($sql);
+                                  $sql="SELECT * FROM materials";
+                                  $result = $conn-> query($sql);
 
-          if ($result-> num_rows > 0) {
-            while ($row = $result-> fetch_assoc()) {
-              echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["description"]."</td><td>".$row["pointsperkg"]."</td></tr>";
-              # code...
-            }
-            echo "</table>";
-            # code...
-          }
-        else{
-          echo "No materials found";
-        }
+                                  if ($result-> num_rows > 0) {
+                                    while ($row = $result-> fetch_assoc()) {
+                                      echo "<tr><td>". $row["id"]."</td><td>".$row["name"]."</td><td>".$row["description"]."</td><td>".$row["pointsperkg"]."</td></tr>";
+                                      # code...
+                                    }
+                                    echo "</table>";
+                                    # code...
+                                  }
+                                else{
+                                  echo "No materials found";
+                                }
 
-        ?>
+                             ?>
                             </table>
                             <br>
 
@@ -150,19 +148,18 @@ while ($row = $result->fetch_assoc()) {
                             <option>
 
                                 <?php  
+                                    $sql="SELECT * from materials";
+                                    $result = $conn-> query($sql);
 
-        $sql="SELECT * from materials";
-        $result = $conn-> query($sql);
+                                    if ($result) {
+                                      while ($row= mysqli_fetch_array($result)) {
+                                        $new=$row["id"];
+                                        echo " Material ID <br> <option>$new<br></option>";
+                                      }
+                                    }
+                                      $conn ->close();
 
-        if ($result) {
-          while ($row= mysqli_fetch_array($result)) {
-            $new=$row["id"];
-            echo " Material ID <br> <option>$new<br></option>";
-          }
-        }
-          $conn ->close();
-
-          ?>
+                                 ?>
 
                             </option>
 
