@@ -1,4 +1,4 @@
-/*function myFunction() {
+function myFunction() {
   var dots = document.getElementById("dots");
   var moreDetails = document.getElementById("more");
   var btnText = document.getElementById("myBtn");
@@ -65,7 +65,7 @@ function myFunction3() {
 }
 
 
-function hideText() {
+function hideTable() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "") {
     x.style.display = "block";
@@ -74,32 +74,6 @@ function hideText() {
   }
 }
 
-function hideText1() {
-  var x1 = document.getElementById("myDIV1");
-  if (x1.style.display === "") {
-    x1.style.display = "block";
-  } else {
-    x1.style.display = "";
-  }
-}
-
-function hideText2() {
-  var x2 = document.getElementById("myDIV2");
-  if (x2.style.display === "") {
-    x2.style.display = "block";
-  } else {
-    x2.style.display = "";
-  }
-}
-
-function hideText3() {
-  var x3 = document.getElementById("myDIV3");
-  if (x3.style.display === "") {
-    x3.style.display = "block";
-  } else {
-    x3.style.display = "";
-  }
-}
 
 
 function myappeal() {
@@ -110,5 +84,3 @@ function myappeal() {
 function mysub() {
   alert("Your Application has been submitted, Thank you");
 }
-
-

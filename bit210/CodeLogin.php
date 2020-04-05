@@ -48,7 +48,7 @@ $_SESSION['findUser']=$username;
   } 
   else {
     echo "<script>
-    alert('Username or Password Incorect');
+    alert('Username or Password Incorrect');
     window.location.href='/bit210/index.php';
     </script>";              
   }

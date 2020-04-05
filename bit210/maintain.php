@@ -28,7 +28,7 @@ $appealRejections = $_SESSION['findUser'];
 
         <header id="header-bg" class="mini">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="./index.php"><b>Recycables</b></a>
+                <a class="navbar-brand" href="./maintain.php"><b>Recycables</b></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,7 +36,7 @@ $appealRejections = $_SESSION['findUser'];
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="viewResidence.php"><b>View submission histroy </b></a>
+                            <a class="nav-link" href="viewSubmissionsHistory.php"><b>View submission histroy </b></a>
                         </li>
                     </ul>
                     <a href="./logout.php" class="nav-link"><b>Log Out</b></a>
